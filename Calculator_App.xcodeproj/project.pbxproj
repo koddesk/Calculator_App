@@ -12,6 +12,8 @@
 		242C0C2628EEDD00004BF634 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242C0C2528EEDD00004BF634 /* ViewController.swift */; };
 		242C0C2B28EEDD01004BF634 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 242C0C2A28EEDD01004BF634 /* Assets.xcassets */; };
 		242C0C2E28EEDD01004BF634 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 242C0C2C28EEDD01004BF634 /* LaunchScreen.storyboard */; };
+		242C0C3B28EEDF5A004BF634 /* MainStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242C0C3A28EEDF5A004BF634 /* MainStackView.swift */; };
+		242C0C3F28EEE1FD004BF634 /* UIStackView + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242C0C3E28EEE1FD004BF634 /* UIStackView + Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		242C0C2A28EEDD01004BF634 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		242C0C2D28EEDD01004BF634 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		242C0C2F28EEDD01004BF634 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		242C0C3A28EEDF5A004BF634 /* MainStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainStackView.swift; sourceTree = "<group>"; };
+		242C0C3E28EEE1FD004BF634 /* UIStackView + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView + Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +62,7 @@
 				242C0C3628EEDDD7004BF634 /* Models */,
 				242C0C3728EEDDE8004BF634 /* Views */,
 				242C0C3828EEDDEF004BF634 /* Controllers */,
+				242C0C3C28EEE1BC004BF634 /* Extensions */,
 				242C0C3928EEDE03004BF634 /* Resources */,
 			);
 			path = Calculator_App;
@@ -82,6 +87,7 @@
 		242C0C3728EEDDE8004BF634 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				242C0C3A28EEDF5A004BF634 /* MainStackView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -102,6 +108,22 @@
 				242C0C2F28EEDD01004BF634 /* Info.plist */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		242C0C3C28EEE1BC004BF634 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				242C0C3D28EEE1D9004BF634 /* UIKit */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		242C0C3D28EEE1D9004BF634 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				242C0C3E28EEE1FD004BF634 /* UIStackView + Extensions.swift */,
+			);
+			path = UIKit;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -174,8 +196,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				242C0C3B28EEDF5A004BF634 /* MainStackView.swift in Sources */,
 				242C0C2628EEDD00004BF634 /* ViewController.swift in Sources */,
 				242C0C2228EEDD00004BF634 /* AppDelegate.swift in Sources */,
+				242C0C3F28EEE1FD004BF634 /* UIStackView + Extensions.swift in Sources */,
 				242C0C2428EEDD00004BF634 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
