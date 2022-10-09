@@ -23,11 +23,15 @@ class MainViewController: UIViewController {
     
     private let mainStackView = MainStackView()
     
+    private let calculationModel = CalculationModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupViews()
         setConstraints()
+        
+        mainStackView.delegate = self
     }
     
     private func setupViews() {
@@ -38,11 +42,49 @@ class MainViewController: UIViewController {
     }
 }
 
+//MARK: - MainStackViewProtocol
+extension MainViewController: MainStackViewProtocol {
+    func tapNumberButton(tag: Int) {
+        calculationModel.setNumber(number: tag)
+        resultLabel.text = calculationModel.getCurrentNumber()
+    }
+    
+    func tapActionButton(tag: Int) {
+        switch tag {
+        case 10: //.
+            calculationModel.addPointValue()
+            resultLabel.text = calculationModel.getCurrentNumber()
+        case 11: //=
+            resultLabel.text = calculationModel.getResult()
+        case 12: //+
+            calculationModel.setOperation(operation: .addition)
+        case 13: //-
+            calculationModel.setOperation(operation: .subtraction)
+        case 14: // *
+            calculationModel.setOperation(operation: .multiplication)
+        case 15: // /
+            calculationModel.setOperation(operation: .division)
+        case 16:// %
+            calculationModel.setPercentNumber()
+            resultLabel.text = calculationModel.getCurrentNumber()
+        case 17:// +/-
+            calculationModel.invertValue()
+            resultLabel.text = calculationModel.getCurrentNumber()
+        case 18: // AC
+            calculationModel.resetValues()
+            resultLabel.text = "0"
+        default:
+            print("error tag")
+        }
+    }
+}
+
+//MARK: - Constraints
 extension MainViewController {
     
     private func setConstraints() {
         NSLayoutConstraint.activate([
-            mainStackView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -10),
+            mainStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -10),
             mainStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
             mainStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
             mainStackView.heightAnchor.constraint(equalTo: mainStackView.widthAnchor, multiplier: 1),
