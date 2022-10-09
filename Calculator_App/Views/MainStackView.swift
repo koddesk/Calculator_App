@@ -7,9 +7,16 @@
 
 import UIKit
 
+protocol MainStackViewProtocol: AnyObject {
+    func tapNumberButton(tag: Int)
+    func tapActionButton(tag: Int)
+}
+
 class MainStackView: UIStackView {
     
     private var stackViewsArray = [UIStackView]()
+    
+    weak var delegate: MainStackViewProtocol?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -44,7 +51,7 @@ class MainStackView: UIStackView {
     }
     
     @objc private func keyboardButtonTapped(sender: UIButton) {
-        print(sender.tag)
+        sender.tag < 10 ? delegate?.tapNumberButton(tag: sender.tag) : delegate?.tapActionButton(tag: sender.tag)
     }
     
     private func setupMainStackView() {
