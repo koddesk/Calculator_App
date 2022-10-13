@@ -15,6 +15,12 @@ class CalculationModel {
     private var currentOperation = Operations.noAction
     
     public func setNumber(number: Int) {
+        
+        if number != 0 && currentNumber == "0" {
+            currentNumber.removeFirst()
+        } else if number == 0 && currentNumber == "0" {
+            currentNumber.removeLast()
+        }
         currentNumber.append(String(number))
     }
     
@@ -23,11 +29,18 @@ class CalculationModel {
     }
     
     //MARK: Set Operation
-    public func setOperation(operation: Operations) {
-        guard let number = Double(currentNumber) else {return}
-        firstNumber = number
+    public func setOperation(operation: Operations) -> String {
+        
+        if currentOperation == .noAction {
+            guard let number = Double(currentNumber) else {return ""}
+            firstNumber = number
+        } else {
+            guard let result = Double(getResult()) else {return ""}
+            firstNumber = result
+        }
         currentNumber = ""
         currentOperation = operation
+        return String(firstNumber)
     }
     
     public func getResult() -> String {
@@ -76,6 +89,7 @@ class CalculationModel {
         currentNumber += currentNumber != "" ? "." : "0."
     }
     
+    //MARK: Percent
     public func setPercentNumber() {
         guard let number = Double(currentNumber) else {return}
         
