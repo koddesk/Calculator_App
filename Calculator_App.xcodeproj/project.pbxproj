@@ -14,6 +14,7 @@
 		242C0C2E28EEDD01004BF634 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 242C0C2C28EEDD01004BF634 /* LaunchScreen.storyboard */; };
 		242C0C3B28EEDF5A004BF634 /* MainStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242C0C3A28EEDF5A004BF634 /* MainStackView.swift */; };
 		242C0C3F28EEE1FD004BF634 /* UIStackView + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242C0C3E28EEE1FD004BF634 /* UIStackView + Extensions.swift */; };
+		243FE0D728F99F2D00A4FCE8 /* Double + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243FE0D628F99F2D00A4FCE8 /* Double + Extensions.swift */; };
 		24902AAC28F1CF82001D1BFE /* OperationsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24902AAB28F1CF82001D1BFE /* OperationsModel.swift */; };
 		24902AAE28F1D030001D1BFE /* CalculationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24902AAD28F1D030001D1BFE /* CalculationModel.swift */; };
 /* End PBXBuildFile section */
@@ -28,6 +29,7 @@
 		242C0C2F28EEDD01004BF634 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		242C0C3A28EEDF5A004BF634 /* MainStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainStackView.swift; sourceTree = "<group>"; };
 		242C0C3E28EEE1FD004BF634 /* UIStackView + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView + Extensions.swift"; sourceTree = "<group>"; };
+		243FE0D628F99F2D00A4FCE8 /* Double + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double + Extensions.swift"; sourceTree = "<group>"; };
 		24902AAB28F1CF82001D1BFE /* OperationsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationsModel.swift; sourceTree = "<group>"; };
 		24902AAD28F1D030001D1BFE /* CalculationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculationModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -120,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				242C0C3D28EEE1D9004BF634 /* UIKit */,
+				243FE0D628F99F2D00A4FCE8 /* Double + Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -204,6 +207,7 @@
 			files = (
 				242C0C3B28EEDF5A004BF634 /* MainStackView.swift in Sources */,
 				242C0C2628EEDD00004BF634 /* MainViewController.swift in Sources */,
+				243FE0D728F99F2D00A4FCE8 /* Double + Extensions.swift in Sources */,
 				24902AAE28F1D030001D1BFE /* CalculationModel.swift in Sources */,
 				242C0C2228EEDD00004BF634 /* AppDelegate.swift in Sources */,
 				242C0C3F28EEE1FD004BF634 /* UIStackView + Extensions.swift in Sources */,
