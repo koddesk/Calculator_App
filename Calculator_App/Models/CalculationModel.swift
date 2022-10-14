@@ -40,7 +40,7 @@ class CalculationModel {
         }
         currentNumber = ""
         currentOperation = operation
-        return String(firstNumber)
+        return firstNumber.stringWithoutZeroFraction
     }
     
     public func getResult() -> String {
@@ -52,16 +52,16 @@ class CalculationModel {
             print("noAction")
             return ""
         case .addition:
-            return String(firstNumber + secondNumber)
+            return (firstNumber + secondNumber).stringWithoutZeroFraction
         case .subtraction:
-            return String(firstNumber - secondNumber)
+            return (firstNumber - secondNumber).stringWithoutZeroFraction
         case .multiplication:
-            return String(firstNumber * secondNumber)
+            return (firstNumber * secondNumber).stringWithoutZeroFraction
         case .division:
             if secondNumber == 0 {
                 return "Не определено"
             } else {
-                return String(firstNumber / secondNumber)
+                return (firstNumber / secondNumber).stringWithoutZeroFraction
             }
         }
     }
