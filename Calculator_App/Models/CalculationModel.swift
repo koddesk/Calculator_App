@@ -13,6 +13,41 @@ class CalculationModel {
     private var secondNumber = 0.0
     private var currentNumber = ""
     private var currentOperation = Operations.noAction
+    private var currentHistory = ""
+    
+    private func setInvertHistoryValue() {
+        guard let number = Double(currentNumber) else {return}
+        
+        switch number {
+        case ..<0:
+            let index = currentHistory.index(currentHistory.endIndex, offsetBy: -2)
+            currentHistory.remove(at: index)
+        case 0: break
+        case 0...:
+            let index = currentHistory.index(before: currentHistory.endIndex)
+            currentHistory.insert("-", at: index)
+        default:
+            print("Invert history error")
+        }
+    }
+    
+    public func getCalculationHistory(tag: Int) -> String {
+        switch tag {
+        case 0...9:
+            currentHistory += "\(tag)"
+        case 10:
+            if !currentNumber.contains(",") {
+                currentHistory += ","
+            }
+        case 12...15:
+            currentHistory += currentOperation.rawValue
+        case 17:
+            setInvertHistoryValue()
+        default:
+            print("Error history tag")
+        }
+        return currentHistory
+    }
     
     public func setNumber(number: Int) {
         
@@ -51,8 +86,7 @@ class CalculationModel {
         
         switch currentOperation {
         case .noAction:
-            print("noAction")
-            return ""
+            return currentNumber
         case .addition:
             result = firstNumber + secondNumber
         case .subtraction:
@@ -75,21 +109,31 @@ class CalculationModel {
         secondNumber = 0.0
         currentNumber = ""
         currentOperation = .noAction
+        currentHistory = ""
     }
     
     //MARK: Plus / Minus
     public func invertValue() {
-        guard let number = Double(currentNumber) else {return}
+        guard let number = Double(currentNumber) else {
+            currentNumber = "0"
+            return
+        }
         
-        if number > 0 {
-            currentNumber.insert("-", at: currentNumber.startIndex)
-        } else {
+        switch number {
+        case ..<0:
             currentNumber.remove(at: currentNumber.startIndex)
+        case 0: break
+        case 0...:
+            currentNumber.insert("-", at: currentNumber.startIndex)
+        default:
+            print("Error invert value")
         }
     }
     
     public func addPointValue() {
-        currentNumber += currentNumber != "" ? "." : "0."
+        if !currentNumber.contains(",") {
+            currentNumber += currentNumber != "" ? "," : "0,"
+        }
     }
     
     //MARK: Percent
