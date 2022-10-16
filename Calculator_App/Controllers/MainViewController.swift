@@ -23,7 +23,7 @@ class MainViewController: UIViewController {
     
     private let historyLabel: UILabel = {
         let label = UILabel()
-        label.text = "0"
+        label.text = ""
         label.font = .boldSystemFont(ofSize: 30)
         label.textColor = .gray
         label.textAlignment = .right
@@ -86,6 +86,7 @@ extension MainViewController: MainStackViewProtocol {
         case 16:// %
             calculationModel.setPercentNumber()
             resultLabel.text = calculationModel.getCurrentNumber()
+            historyLabel.text = calculationModel.getCalculationHistory(tag: tag)
         case 17:// +/-
             historyLabel.text = calculationModel.getCalculationHistory(tag: tag)
             calculationModel.invertValue()

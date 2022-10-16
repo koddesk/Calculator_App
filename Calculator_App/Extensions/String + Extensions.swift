@@ -8,7 +8,7 @@
 import Foundation
 
 extension String {
-    var stringWithoutPoint: String {
+    var stringWithPoint: String {
         self.contains(".") ? self.replacingOccurrences(of: ".", with: ",") : self
     }
 }

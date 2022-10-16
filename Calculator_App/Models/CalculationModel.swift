@@ -36,15 +36,26 @@ class CalculationModel {
         case 0...9:
             currentHistory += "\(tag)"
         case 10:
-            if !currentNumber.contains(",") {
+            if !currentNumber.contains(".") {
                 currentHistory += ","
             }
         case 12...15:
+            guard let last = currentHistory.last else {break}
+            if last == "+" ||
+                last == "-" ||
+                last == "*" ||
+                last == "/" ||
+                last == "%" {
+                currentHistory.removeLast()
+            }
             currentHistory += currentOperation.rawValue
+        case 16:
+            currentHistory += "%"
         case 17:
             setInvertHistoryValue()
         default:
             print("Error history tag")
+            break
         }
         return currentHistory
     }
@@ -60,22 +71,25 @@ class CalculationModel {
     }
     
     public func getCurrentNumber() -> String {
-        currentNumber.stringWithoutPoint
+        currentNumber.stringWithPoint
     }
     
     //MARK: Set Operation
     public func setOperation(operation: Operations) -> String {
         
         if currentOperation == .noAction {
-            guard let number = Double(currentNumber) else {return ""}
+            guard let number = Double(currentNumber) else {return "0"}
             firstNumber = number
         } else {
-            guard let result = Double(getResult()) else {return ""}
+            guard let result = Double(getResult()) else {
+                currentOperation = operation
+                return firstNumber.stringWithoutZeroFraction.stringWithPoint
+            }
             firstNumber = result
         }
         currentNumber = ""
         currentOperation = operation
-        return firstNumber.stringWithoutZeroFraction.stringWithoutPoint
+        return firstNumber.stringWithoutZeroFraction.stringWithPoint
     }
     
     public func getResult() -> String {
@@ -100,7 +114,7 @@ class CalculationModel {
                 result = firstNumber / secondNumber
             }
         }
-        return result.stringWithoutZeroFraction.stringWithoutPoint
+        return result.stringWithoutZeroFraction.stringWithPoint
     }
     
     //MARK: Reset
@@ -131,8 +145,8 @@ class CalculationModel {
     }
     
     public func addPointValue() {
-        if !currentNumber.contains(",") {
-            currentNumber += currentNumber != "" ? "," : "0,"
+        if !currentNumber.contains(".") {
+            currentNumber += currentNumber != "" ? "." : "0."
         }
     }
     
